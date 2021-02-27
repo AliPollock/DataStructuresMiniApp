@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="80dp"
+            android:padding="50dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:textColor="#363A43"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:paddingBottom="30dp"
+                android:text="Data Visualisation"/>
+
+
+            <Button
+                android:id="@+id/btn_stack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="Stack"/>
+
+            <Button
+                android:id="@+id/btn_queue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="Queue"/>
+
+            <Button
+                android:id="@+id/btn_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="Map"/>
+
+
+        </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Map"
+            android:textSize="28dp"
+            android:textStyle="bold">
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="10dp"
+            android:text="Home">
+
+        </Button>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="147dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+
+            <LinearLayout
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="20dp"
+
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Key"
+                        android:layout_marginRight="23dp"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/add_key_Input"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_edittext_background"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Value"
+                        android:layout_marginRight="10dp"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center">
+
+                     </TextView>
+
+                    <EditText
+                        android:id="@+id/add_value_input"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_edittext_background"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_add_pair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="105dp"
+                android:text="Add Pair" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Key"
+                    android:layout_marginRight="23dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="center">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/check_key_input"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_edittext_background"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_contains_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="check key" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="70dp"
+
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Value"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:gravity="center">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/check_key_result"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_edittext_background"
+                    android:gravity="center"
+                    android:textSize="24dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/is_empty"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"/>
+
+            <Button
+                android:id="@+id/btn_pop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isEmpty"
+                android:gravity="center"/>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Keys"
+                android:textSize="14dp"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/keyTextView1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/keyTextView11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Values"
+                android:textSize="14dp"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/valueTextView1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/valueTextView11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_edittext_background"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="147dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/remove_key_input"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/ic_edittext_background"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Key"
+                        android:textSize="18dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                </LinearLayout>
+            <Button
+                android:id="@+id/btn_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remove Pair"
+                android:layout_marginBottom="120dp" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/add_lone_key_input"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ic_edittext_background"
+                android:gravity="center"
+                android:textSize="24dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btn_add_lone_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Key"
+                android:layout_marginBottom="173dp"/>
+
+
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="clear"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
