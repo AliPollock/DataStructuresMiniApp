@@ -13,6 +13,10 @@ import com.example.datastructuresapp.databinding.ActivityQueueBinding
 import java.lang.IndexOutOfBoundsException
 import java.lang.NullPointerException
 
+/**
+ * Controller for the Map page.
+ */
+
 class MapActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMapBinding
@@ -23,6 +27,10 @@ class MapActivity : AppCompatActivity() {
     lateinit var addLoneKeyInput: String
     lateinit var checkKeyInput: String
     lateinit var checkKeyResult: String
+
+    /**
+     * Function to set map display according to current content of mainMap and other fields.
+     */
 
     private fun setMapDisplay(){
 
@@ -69,11 +77,11 @@ class MapActivity : AppCompatActivity() {
 
         } catch (exception: IndexOutOfBoundsException){}
 
-        try {
-            binding.checkKeyResult.text = checkKeyResult
-        } catch (exception: UninitializedPropertyAccessException ){}
-
     }
+
+    /**
+     * Function to reset map display to blank.
+     */
 
     private fun clearMapDisplay(){
 
@@ -113,16 +121,44 @@ class MapActivity : AppCompatActivity() {
         } catch(exception: IndexOutOfBoundsException){}
     }
 
+    /**
+     * Function to display the value of the key being checked.
+     */
+
+    private fun displayCheckKeyResult(){
+        try {
+            if (checkKeyResult == "empty") {
+                binding.checkKeyResult.text = ""
+                Toast.makeText(this, "This key doesn't exist in the map.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "This value of checkKeyResult is $checkKeyResult", Toast.LENGTH_SHORT).show()
+                binding.checkKeyResult.text = checkKeyResult
+            }
+        } catch (exception: UninitializedPropertyAccessException ){}
+    }
+
+    /**
+     * Function which sets view to activity_map and sets click and change listeners on the view.
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        /**
+         * The click listener for the home button.
+         */
 
         binding.btnHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        /**
+         * The change listener for the addPair button.
+         */
 
         binding.addKeyInput.addTextChangedListener(object: TextWatcher {
 
@@ -139,6 +175,10 @@ class MapActivity : AppCompatActivity() {
             }
         })
 
+        /**
+         * The change listener for the addValue button.
+         */
+
         binding.addValueInput.addTextChangedListener(object: TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -153,6 +193,10 @@ class MapActivity : AppCompatActivity() {
                 addValueInput = s.toString()!!
             }
         })
+
+        /**
+         * The change listener for the removeKey button.
+         */
 
         binding.removeKeyInput.addTextChangedListener(object: TextWatcher {
 
@@ -169,6 +213,10 @@ class MapActivity : AppCompatActivity() {
             }
         })
 
+        /**
+         * The change listener for the addLoneKey button.
+         */
+
         binding.addLoneKeyInput.addTextChangedListener(object: TextWatcher {
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -183,6 +231,10 @@ class MapActivity : AppCompatActivity() {
                 addLoneKeyInput = s.toString()!!
             }
         })
+
+        /**
+         * The change listener for the checkKey button.
+         */
 
         binding.checkKeyInput.addTextChangedListener(object: TextWatcher {
 
@@ -200,11 +252,15 @@ class MapActivity : AppCompatActivity() {
         })
 
 
+        /**
+         * The click listener for the addPair button. This will call the add function for the map and display the changed map.
+         */
+
         binding.btnAddPair.setOnClickListener {v ->
-            if(this::addValueInput.isInitialized) {
+            if(this::addValueInput.isInitialized && this::addKeyInput.isInitialized) {
                 var addKey: String? = addKeyInput
                 var addValue: String? = addValueInput
-                if (addKey != null && addValue != null && addValue != "") {
+                if (addKey != null && addValue != null && addValue != "" && addKey != "") {
                     mainMap.put(addKey, addValue)
                     setMapDisplay()
 
@@ -219,34 +275,49 @@ class MapActivity : AppCompatActivity() {
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
 
+        /**
+         * The click listener for the containsKey button. This will call the get function for the map and displays the result.
+         */
+
         binding.btnContainsKey.setOnClickListener {v ->
             var checkKey: String? = checkKeyInput
             if (checkKey != null) {
                 checkKeyResult = mainMap.getValue(checkKey).toString()
                 setMapDisplay()
+                displayCheckKeyResult()
             }
             if (checkKeyResult == "" || !this::checkKeyResult.isInitialized){
                 Toast.makeText(this, "No such key exists in the map", Toast.LENGTH_SHORT).show()
+                clearMapDisplay()
             }
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
 
+        /**
+         * The click listener for the removeKey button. This will call the remove function for the map and display the changed map.
+         */
+
         binding.btnRemove.setOnClickListener {v ->
             if(this::removeKeyInput.isInitialized) {
                 var removeKey: String? = removeKeyInput
                 if (removeKey != null) {
-                    mainMap.remove(removeKey)
+                    var removeReturnValue = mainMap.remove(removeKey)
+                    if (removeReturnValue == null){
+                        Toast.makeText(this, "No such key exists in the map", Toast.LENGTH_SHORT).show()
+                    }
                     setMapDisplay()
-                } else {
-                    Toast.makeText(this, "No such key exists in the map", Toast.LENGTH_SHORT).show()
                 }
             }
 
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
+
+        /**
+         * The click listener for the addLoneKey button. This will call the add function for the map and display the changed map.
+         */
 
         binding.btnAddLoneKey.setOnClickListener {v ->
             var addKey: String? = addLoneKeyInput
@@ -257,6 +328,10 @@ class MapActivity : AppCompatActivity() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
+
+        /**
+         * The click listener for the clear button. This will call the clear function for the map and display the changed map.
+         */
 
         binding.btnClear.setOnClickListener {
             mainMap.clear()

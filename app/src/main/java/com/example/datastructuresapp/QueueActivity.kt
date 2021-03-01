@@ -12,12 +12,20 @@ import com.example.datastructuresapp.databinding.ActivityMainBinding
 import com.example.datastructuresapp.databinding.ActivityQueueBinding
 import java.lang.IndexOutOfBoundsException
 
+/**
+ * Controller for the Queue page.
+ */
+
 class QueueActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityQueueBinding
     private var mainQueue: MyQueue<String> = MyQueue()
     lateinit var addInput: String
+
+    /**
+     * Function to set queue display according to current content of mainQueue and other fields.
+     */
 
     private fun setQueueDisplay(){
 
@@ -42,6 +50,10 @@ class QueueActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Function to reset queue display to blank.
+     */
+
     private fun clearQueueDisplay(){
 
         try{
@@ -64,18 +76,28 @@ class QueueActivity : AppCompatActivity() {
         } catch(exception: IndexOutOfBoundsException){}
     }
 
+    /**
+     * Function which sets view to activity_map and sets click and change listeners on the view.
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQueueBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /**
+         * The click listener for the home button.
+         */
 
         binding.btnHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        /**
+         * The change listener for the add button.
+         */
 
         binding.addInput.addTextChangedListener(object: TextWatcher {
 
@@ -91,6 +113,10 @@ class QueueActivity : AppCompatActivity() {
                 addInput = s.toString()!!
             }
         })
+
+        /**
+         * The click listener for the addPair button. This will call the add function for the queue and display the changed queue.
+         */
 
         binding.btnAdd.setOnClickListener{v  ->
 
@@ -108,6 +134,10 @@ class QueueActivity : AppCompatActivity() {
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
 
+        /**
+         * The change listener for the pop button. This will call the remove function for the queue and display the changed queue.
+         */
+
         binding.btnPop.setOnClickListener {
             try{
                 var popPlaceholder = mainQueue.peek()
@@ -116,6 +146,10 @@ class QueueActivity : AppCompatActivity() {
                 binding.popOutput.text = popPlaceholder
             } catch(exception: ArrayIndexOutOfBoundsException){}
         }
+
+        /**
+         * The change listener for the clear button. This will call the clear function for the queue and display the changed queue.
+         */
 
         binding.btnClear.setOnClickListener {
             mainQueue.clear()

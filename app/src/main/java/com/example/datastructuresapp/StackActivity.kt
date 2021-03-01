@@ -13,12 +13,20 @@ import com.example.datastructuresapp.databinding.ActivityQueueBinding
 import com.example.datastructuresapp.databinding.ActivityStackBinding
 import java.lang.IndexOutOfBoundsException
 
+/**
+ * Controller for the Stack page.
+ */
+
 class StackActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityStackBinding
     private var mainStack: MyStack<String> = MyStack()
     lateinit var pushInput: String
+
+    /**
+     * Function to set stack display according to current content of mainStack and other fields.
+     */
 
     private fun setStackDisplay(){
 
@@ -46,6 +54,9 @@ class StackActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Function to reset stack display to blank.
+     */
 
     private fun clearStackDisplay(){
 
@@ -70,18 +81,29 @@ class StackActivity : AppCompatActivity() {
         } catch (exception: IndexOutOfBoundsException){}
     }
 
+    /**
+     * Function which sets view to activity_stack and sets click and change listeners on the view.
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStackBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setStackDisplay()
 
+        /**
+         * The click listener for the home button.
+         */
 
         binding.btnHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
+
+        /**
+         * The change listener for the add button.
+         */
 
         binding.pushInput.addTextChangedListener(object: TextWatcher {
 
@@ -97,6 +119,10 @@ class StackActivity : AppCompatActivity() {
                 pushInput = s.toString()!!
             }
         })
+
+        /**
+         * The click listener for the add button. This will call the add function for the stack and display the changed stack.
+         */
 
         binding.btnPush.setOnClickListener{v  ->
 
@@ -115,6 +141,9 @@ class StackActivity : AppCompatActivity() {
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
 
+        /**
+         * The click listener for the remove button. This will call the remove function for the stack and display the changed stack.
+         */
 
 
         binding.btnPop.setOnClickListener {
@@ -125,6 +154,10 @@ class StackActivity : AppCompatActivity() {
                 binding.popOutput.text = popPlaceholder
             } catch(exception: ArrayIndexOutOfBoundsException){}
         }
+
+        /**
+         * The click listener for the clear button. This will call the clear function for the stack and display the changed stack.
+         */
 
         binding.btnClear.setOnClickListener {
             mainStack.clear()
