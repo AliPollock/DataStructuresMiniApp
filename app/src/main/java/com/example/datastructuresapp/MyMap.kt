@@ -76,6 +76,7 @@ class MyMap: com.example.datastructuresapp.Map{
 
     /**
      * Function which puts a new pair into the map, replaces the value of the key if the key already exists.
+     * @params: The key and the value.
      * @return The previous value associated with this key if the key existed previously, else returns null.
      */
 

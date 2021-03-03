@@ -7,8 +7,6 @@ package com.example.datastructuresapp
 
 class MapEntry(key: Any, value: Any?) {
 
-
-
     private var key: Any = key
     private var value: Any? = value
 
